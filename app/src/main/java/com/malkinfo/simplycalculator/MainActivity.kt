@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         result = ""
         dot_inserted = false
         operator_inserted = false
+
+
     }
 
     fun inputShow(){
