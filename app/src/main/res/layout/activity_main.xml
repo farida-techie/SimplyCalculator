@@ -8,7 +8,14 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:background="@color/black"
+    android:padding="10dp"
     tools:context=".MainActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/sky_blue"
+        app:title="@string/app_name" />
 
 
 
@@ -21,6 +28,7 @@
        <EditText
            android:id="@+id/inputTv"
            android:layout_marginTop="5dp"
+           android:importantForAutofill="no"
            android:textAlignment="textEnd"
            android:textSize="45sp"
            android:textColor="@color/white"
@@ -29,10 +37,13 @@
            android:maxLines="1"
            android:enabled="false"
            android:layout_width="match_parent"
-           android:layout_height="65dp"/>
+           android:layout_height="65dp"
+           android:hint="@string/_0"
+           tools:ignore="LabelFor,TextFields" />
        <EditText
            android:id="@+id/outputTv"
            android:layout_marginTop="5dp"
+           android:importantForAutofill="no"
            android:textAlignment="textEnd"
            android:textSize="45sp"
            android:textColor="@color/white"
@@ -41,7 +52,9 @@
            android:maxLines="1"
            android:enabled="false"
            android:layout_width="match_parent"
-           android:layout_height="65dp"/>
+           android:layout_height="65dp"
+           android:hint="@string/_0"
+           tools:ignore="LabelFor,TextFields" />
    </LinearLayout>
     <View
         android:alpha=".5"
@@ -49,12 +62,14 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/clear"
             android:layout_margin="5dp"
@@ -67,12 +82,11 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="65dp"
-            app:shapeAppearanceOverlay="@style/Button8"
-            />
+            app:shapeAppearanceOverlay="@style/Button8" />
+
         <Button
             android:id="@+id/delete"
             android:layout_margin="5dp"
-            android:onClick="backSpace"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:paddingTop="11dp"
@@ -95,16 +109,17 @@
             android:shrinkColumns="*"
             android:stretchColumns="*"
             android:background="#FFFEFE"
-            >
+            tools:ignore="UselessParent">
             <TableRow
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                >
+                android:gravity="center_horizontal">
+
                 <Button
                     android:id="@+id/btnDivide"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/divide"
-                    android:onClick="calculatorOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -116,12 +131,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btnMultiply"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/multiply"
-                    android:onClick="calculatorOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -133,12 +148,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btnMinus"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/minus"
-                    android:onClick="calculatorOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -150,12 +165,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btnPlus"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/plus"
-                    android:onClick="calculatorOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -172,16 +187,17 @@
 
             </TableRow>
             <TableRow
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                >
+                android:gravity="center_horizontal">
+
                 <Button
                     android:id="@+id/btn9"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_9"
                     android:textSize="22sp"
                     android:padding="5dp"
-                    android:onClick="numberOperator"
                     android:layout_span="1"
                     android:textStyle="bold|normal"
                     android:layout_margin="5dp"
@@ -191,15 +207,15 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btn0"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_0"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
-                    android:onClick="numberOperator"
                     android:textStyle="bold|normal"
                     android:layout_margin="5dp"
                     android:textColor="@color/black"
@@ -208,10 +224,11 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btnDot"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/dot"
                     android:textSize="22sp"
                     android:onClick="dotOperator"
@@ -225,12 +242,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btnEqual"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/equal"
-                    android:onClick="equalCalculat"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -247,14 +264,15 @@
 
             </TableRow>
             <TableRow
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                >
+                android:gravity="center_horizontal">
+
                 <Button
                     android:id="@+id/btn5"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_5"
-                    android:onClick="numberOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -266,15 +284,15 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btn6"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_6"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
-                    android:onClick="numberOperator"
                     android:textStyle="bold|normal"
                     android:layout_margin="5dp"
                     android:textColor="@color/black"
@@ -283,12 +301,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btn7"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_7"
-                    android:onClick="numberOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -300,12 +318,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btn8"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_8"
-                    android:onClick="numberOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -322,14 +340,15 @@
 
             </TableRow>
             <TableRow
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                >
+                android:gravity="center_horizontal">
+
                 <Button
                     android:id="@+id/btn1"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_1"
-                    android:onClick="numberOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -341,12 +360,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btn2"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_2"
-                    android:onClick="numberOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -358,12 +377,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btn3"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_3"
-                    android:onClick="numberOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
@@ -375,12 +394,12 @@
                     android:layout_height="60dp"
                     app:shapeAppearanceOverlay="@style/Button4"
                     app:strokeColor="@color/grey"
-                    app:strokeWidth="1dp"
-                    />
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/btn4"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:text="@string/_4"
-                    android:onClick="numberOperator"
                     android:textSize="22sp"
                     android:padding="5dp"
                     android:layout_span="1"
